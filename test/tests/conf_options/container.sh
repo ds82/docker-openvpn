@@ -82,7 +82,7 @@ test_config "${SERVER_CONF}" '^push\s\+"route\s\+172.22.22.0\s\+255.255.255.0"'
 
 ## Test for default
 # 8. Should see default route if none provided
-test_config "${SERVER_CONF}" "^route\s\+192.168.254.0\s\+255.255.255.0"
+test_config "${SERVER_CONF}" "^route\s\+10.0.10.0\s\+255.255.255.0"
 
 # 9. Should see a push of 'block-outside-dns' by default
 test_config "${SERVER_CONF}" '^push\s\+"block-outside-dns"'

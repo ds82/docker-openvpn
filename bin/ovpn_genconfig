@@ -164,7 +164,7 @@ OVPN_PORT=''
 OVPN_PROTO=''
 OVPN_PUSH=()
 OVPN_ROUTES=()
-OVPN_SERVER=192.168.255.0/24
+OVPN_SERVER=10.0.10.0/24
 OVPN_SERVER_URL=''
 OVPN_TLS_CIPHER=''
 
@@ -286,10 +286,10 @@ fi
 # Apply defaults. If dns servers were not defined with -n, use google nameservers
 set +u
 [ -z "$OVPN_DNS_SERVERS" ] && OVPN_DNS_SERVERS=("8.8.8.8" "8.8.4.4")
-[ -z "$OVPN_PROTO" ] && OVPN_PROTO=udp
-[ -z "$OVPN_PORT" ] && OVPN_PORT=1194
+[ -z "$OVPN_PROTO" ] && OVPN_PROTO=tcp
+[ -z "$OVPN_PORT" ] && OVPN_PORT=443
 set -u
-[ "${#OVPN_ROUTES[@]}" == "0" ] && [ "$OVPN_DEFROUTE" == "1" ] && OVPN_ROUTES+=("192.168.254.0/24")
+[ "${#OVPN_ROUTES[@]}" == "0" ] && [ "$OVPN_DEFROUTE" == "1" ] && OVPN_ROUTES+=("10.0.10.0/24")
 
 # Preserve config
 if [ -f "$OVPN_ENV" ]; then
